@@ -76,8 +76,12 @@ num_list = [int(i) for i in num_list]
 ##print(num_list[1])
 ##print(num_list[2])
 
+print("三桁の数字を入力すると，ヒットの数，ブローの数，ヒントが表示されます．これらの情報から三桁の数字を推理しましょう．")
+print("ヒット：数字と桁位置の両方があっている")
+print("ブロー：数字はあっているが桁位置が違う")
+
 for i in range(1, 6):
-    print("三桁の数字を入力してください．")
+    print("三桁の数字を入力してください")
     num_player = int (input())
     num_player_list = [int(i) for i in str(num_player)]
     num_player_list = [int(i) for i in num_player_list]
