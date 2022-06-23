@@ -1,12 +1,22 @@
-import numpy as np
+import random
 import sys
 
-def judgment(j, k):
-    if j==k:
-        print("正解です！")
+def hitandblow(j, k):
+    hit = 0
+    blow = 0
+
+    for n in range (3):
+        if k[n] == j[n]:
+            hit += 1
+        else:
+            if k[n] in j:
+                blow += 1
+    
+    if hit == 3:
+        print("正解です!")
         sys.exit()
     else:
-        print("不正解です")
+        print("ヒット：%d, ブロー：%d" %(hit,blow))
 
 def hint(i, j, k):
     if i==1:
@@ -54,14 +64,23 @@ def hint3(k):
     else:
         print("正解の数字は素数です")
 
-num = np.random.randint(100, 1000, (1, 1))
-print(num)
+num = random.randint(100, 999)
+num_list = [int(i) for i in str(num)]
+num_list = [int(i) for i in num_list]
+##print(num)
+##print(num_list[0])
+##print(num_list[1])
+##print(num_list[2])
 
-for i in range(1, 4):
+for i in range(1, 10):
     print("三桁の数字を入力してください．")
     num_player = int (input())
+    num_player_list = [int(i) for i in str(num_player)]
+    num_player_list = [int(i) for i in num_player_list]
 
-    judgment(num_player, num)
+    hitandblow(num_player_list, num_list)
 
     print("ヒント%d : " %i, end="")
     hint(i, num_player, num)
+
+print("正解は%dです" %num)
