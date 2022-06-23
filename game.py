@@ -14,6 +14,12 @@ def hint1(i, j):
     else:
         print("もっと大きい数字です．")
 
+def hint2(i, j):
+    if j%2==0:
+        print("正解の数字は偶数です．")
+    else:
+        print("正解の数字は奇数です．")
+
 num = np.random.randint(100, 1000, (1, 1))
 print(num)
 
@@ -22,5 +28,5 @@ num_player = int (input())
 
 judgment(num_player, num)
 
-print("ヒント１：", end="")
-hint1(num_player, num)
+print("ヒント２：", end="")
+hint2(num_player, num)
