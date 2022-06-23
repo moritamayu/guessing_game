@@ -64,6 +64,10 @@ def hint3(k):
     else:
         print("正解の数字は素数です")
 
+def hint4(k):
+    sum = k[0] + k[1] + k[2]
+    print("3つの数字の合計は%dです" %sum)
+
 num = random.randint(100, 999)
 num_list = [int(i) for i in str(num)]
 num_list = [int(i) for i in num_list]
@@ -72,13 +76,16 @@ num_list = [int(i) for i in num_list]
 ##print(num_list[1])
 ##print(num_list[2])
 
-for i in range(1, 10):
+for i in range(1, 6):
     print("三桁の数字を入力してください．")
     num_player = int (input())
     num_player_list = [int(i) for i in str(num_player)]
     num_player_list = [int(i) for i in num_player_list]
 
     hitandblow(num_player_list, num_list)
+
+    if i==5:
+        break
 
     print("ヒント%d : " %i, end="")
     hint(i, num_player, num)
