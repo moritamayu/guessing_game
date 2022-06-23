@@ -18,13 +18,15 @@ def hitandblow(j, k):
     else:
         print("ヒット：%d, ブロー：%d" %(hit,blow))
 
-def hint(i, j, k):
+def hint(i, j, k, m):
     if i==1:
         hint1(j, k)
     elif i==2:
         hint2(k)
     elif i==3:
         hint3(k)
+    elif i==4:
+        hint4(m)
 
 def hint1(j, k):
     if j>k:
@@ -61,11 +63,14 @@ def hint3(k):
         print("正解の数字は29の倍数です")
     elif k%31==0:
         print("正解の数字は31の倍数です")
+    elif k%2==0:
+        a = k / 2
+        print("正解の数字は%dです" %a)
     else:
         print("正解の数字は素数です")
 
-def hint4(k):
-    sum = k[0] + k[1] + k[2]
+def hint4(m):
+    sum = m[0] + m[1] + m[2]
     print("3つの数字の合計は%dです" %sum)
 
 num = random.randint(100, 999)
@@ -77,6 +82,7 @@ num_list = [int(i) for i in num_list]
 ##print(num_list[2])
 
 print("三桁の数字を入力すると，ヒットの数，ブローの数，ヒントが表示されます．これらの情報から三桁の数字を推理しましょう．")
+print("チャレンジできる回数は5回です")
 print("ヒット：数字と桁位置の両方があっている")
 print("ブロー：数字はあっているが桁位置が違う")
 
@@ -92,6 +98,6 @@ for i in range(1, 6):
         break
 
     print("ヒント%d : " %i, end="")
-    hint(i, num_player, num)
+    hint(i, num_player, num, num_list)
 
 print("正解は%dです" %num)
