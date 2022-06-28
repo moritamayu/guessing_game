@@ -95,6 +95,7 @@ for i in range(1, 6):
     hitandblow(num_player_list, num_list)
 
     if i==5:
+        print("ゲームオーバー")
         break
 
     print("ヒント%d : " %i, end="")
